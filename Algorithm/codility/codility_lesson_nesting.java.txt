@@ -1,0 +1,29 @@
+// you can also use imports, for example:
+import java.util.*;
+
+// you can write to stdout for debugging purposes, e.g.
+// System.out.println("this is a debug message");
+
+class Solution {
+    public int solution(String S) {
+        // write your code in Java SE 8
+        Stack<Character> stack = new Stack<>();
+        char bracket;
+        for(int i=0; i<S.length(); i++){
+            bracket = S.charAt(i);
+            if(stack.empty()){
+                stack.push(bracket);
+                continue;
+            }
+            
+            if((stack.peek() == '(' && bracket == ')')){
+                stack.pop();
+            }
+            else {
+                stack.push(bracket);
+            }
+        }
+
+        return stack.empty() ? 1 : 0;
+    }
+}
